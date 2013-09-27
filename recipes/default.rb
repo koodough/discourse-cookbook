@@ -70,7 +70,7 @@ directory node['discourse']['install_dir'] do
 end
 
 git node['discourse']['install_dir'] do
-  repository "git://github.com/discourse/discourse.git"
+  repository "https://github.com/discourse/discourse.git"
   revision "#{node['discourse']['release']}"
   user node['discourse']['user']
   group node['discourse']['group']

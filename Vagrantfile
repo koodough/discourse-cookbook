@@ -7,16 +7,15 @@ Vagrant.configure("2") do |config|
   config.vm.box_url = "http://files.vagrantup.com/precise64.box"
 
   # config.vm.network :private_network, ip: "33.33.33.10"
-  config.vm.network :forwarded_port, {guest: 8000, host: 8000}
-  config.vm.network :forwarded_port, {guest: 80, host: 8888}
+  config.vm.network :forwarded_port, guest: 8000, host: 8000
+  config.vm.network :forwarded_port, guest: 80, host: 8888
 
   # config.vm.synced_folder "../data", "/vagrant_data"
 
-  config.ssh.timeout       = 120
-  config.ssh.max_tries     = 40
   config.ssh.forward_agent = true
 
   config.berkshelf.enabled = true
+  config.omnibus.chef_version = :latest
 
   config.vm.provision :chef_solo do |chef|
     chef.log_level = :debug
@@ -35,7 +34,7 @@ Vagrant.configure("2") do |config|
       },
       :discourse => {
         :release => "v0.9.6",
-        :secret_token => "Kittens rule the world!!!",   # Obvioulsy you need to change this
+        :secret_token => "8685d567bab2a6f1e5bde9fa7aa5f41e49f2d80b1a025bc3020b04788b399d7381fec379fabb52d2fc49088ff69058553daa5588a92ff714dff832ca63863247",   # Obvioulsy you need to change this
       },
       :postgresql => {
         :password => {
