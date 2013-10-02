@@ -151,7 +151,7 @@ end
 execute "install_gems" do
   user node['discourse']['user']
   cwd node['discourse']['install_dir']
-  command "bundle install --deployment --without test"
+  command "#{node['rbenv']['root']}/shims/bundle install --deployment --without test"
   environment({
     'RBENV_VERSION' => node['discourse']['ruby_version'],
   })
@@ -160,7 +160,7 @@ end
 execute "db_migrate" do
   user node['discourse']['user']
   cwd node['discourse']['install_dir']
-  command "bundle exec rake db:migrate >/tmp/db:migrate.log 2>&1"
+  command "#{node['rbenv']['root']}/shims/bundle exec rake db:migrate >/tmp/db:migrate.log 2>&1"
   environment({
     'RAILS_ENV' => 'production',
     'RBENV_VERSION' => node['discourse']['ruby_version'],
@@ -172,7 +172,7 @@ end
 execute "assests_precompile" do
   user node['discourse']['user']
   cwd node['discourse']['install_dir']
-  command "bundle exec rake assets:precompile >/tmp/assets:precompile.log 2>&1"
+  command "#{node['rbenv']['root']}/shims/bundle exec rake assets:precompile >/tmp/assets:precompile.log 2>&1"
   environment({
     'RAILS_ENV' => 'production',
     'RBENV_VERSION' => node['discourse']['ruby_version'],
@@ -184,7 +184,7 @@ end
 execute "install_bluepill" do
   user node['discourse']['user']
   cwd node['discourse']['install_dir']
-  command "bundle install --deployment --without test"
+  command "#{node['rbenv']['root']}/shims/bundle install --deployment --without test"
   environment({
     'RBENV_VERSION' => node['discourse']['ruby_version'],
   })
