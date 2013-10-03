@@ -1,6 +1,6 @@
 upstream discourse {
   # server unix:<%= node['discourse']['install_dir'] %>/tmp/thin.sock;
-  server 127.0.0.1:3000;
+  server 127.0.0.1:<%= node['discourse']['port'] %>;
 }
 
 server {

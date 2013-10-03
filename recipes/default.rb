@@ -199,7 +199,7 @@ end
 
 # Run this shit
 supervisor_service "thin" do
-  command "#{node['rbenv']['root']}/shims/bundle exec thin start -e production --port 3000"
+  command "#{node['rbenv']['root']}/shims/bundle exec thin start -e production --port #{node['discourse']['port']}"
   directory node['discourse']['install_dir']
   user node['discourse']['user']
   stdout_logfile "#{node['supervisor']['log_dir']}/thin.stdout.log"
