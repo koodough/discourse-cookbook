@@ -22,7 +22,7 @@ include_recipe "postgresql::contrib"
 
 apt_repository "redis-ppa" do
   uri "http://ppa.launchpad.net/rwky/redis/ubuntu"
-  distribution node['lsb']['codename']
+  distribution "precise "#node['lsb']['codename']
   components ["main"]
   keyserver "keyserver.ubuntu.com"
   key "5862E31D"
