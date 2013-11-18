@@ -13,6 +13,6 @@ depends 'rbenv', '> 1.6.5'
 depends 'postfix', '> 3.0.0'
 depends 'postgresql', '> 3.0.4'
 depends 'supervisor', '> 0.4.8'
-depends 'build-essential', '> 1.4.2'
+depends 'build-essential'
 
 supports 'ubuntu'
