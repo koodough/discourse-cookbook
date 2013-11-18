@@ -182,7 +182,7 @@ execute "assests_precompile" do
 end
 
 execute "install_bluepill" do
-  user node['discourse']['user']
+  user 'root' #node['discourse']['user']
   cwd node['discourse']['install_dir']
   command "#{node['rbenv']['root']}/shims/bundle install --deployment --without test"
   environment({
