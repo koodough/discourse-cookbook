@@ -8,7 +8,6 @@ Platform
 --------
 - Debian, Ubuntu
 - CentOS, Red Hat, Fedora
-- Mac OS X (Using homebrew)
 
 Tested on:
 
