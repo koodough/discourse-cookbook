@@ -9,7 +9,7 @@ production:
   # db_id: 0	# database ID if hosting multiple sites
   host_names:
     # /!\ Make sure you *also* restart sidekiq if you change this setting /!\
-    - localhost # Update this to be the domain of your production site
+    - <%= node['fqdn'] %> # Update this to be the domain of your production site
 
 test:
   adapter: postgresql
