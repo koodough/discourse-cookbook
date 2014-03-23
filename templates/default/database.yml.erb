@@ -8,8 +8,8 @@ production:
   timeout: 5000
   # db_id: 0	# database ID if hosting multiple sites
   host_names:
-    # /!\ Make sure you *also* restart sidekiq if you change this setting /!\
     - <%= node['fqdn'] %> # Update this to be the domain of your production site
+    # Make sure you *also* restart sidekiq if you change the host_names setting 
 
 test:
   adapter: postgresql
